@@ -19,14 +19,14 @@ public class Philosopher implements Runnable {
 	public void run() {
 		try {
 			while (true) {
-				wykonajZadanie(" myœli");
+				wykonajZadanie(" mysli");
 				synchronized (leftFork) {
-					wykonajZadanie(": wzia³ widelec po lewej stronie");
+					wykonajZadanie(": wzial widelec po lewej stronie");
 					synchronized (rightKnife) {
-						wykonajZadanie(" wzi¹³ nó¿ po prawej stronie i zacz¹³ jeœæ schabowego");
-						wykonajZadanie(" od³o¿y³ nó¿");
+						wykonajZadanie(" wzial noz po prawej stronie i zaczal jesc schabowego");
+						wykonajZadanie(" odlozyl noz");
 					}
-					wykonajZadanie("od³o¿y³ widelec i zacz¹³ znów rozmyœlaæ");
+					wykonajZadanie("odlozyl widelec i zaczal znow rozmyslac");
 				}
 			}
 		} catch (InterruptedException e) {
