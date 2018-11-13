@@ -26,7 +26,7 @@ public class Philosopher implements Runnable {
 						wykonajZadanie(" wzial noz po prawej stronie i zaczal jesc schabowego");
 						wykonajZadanie(" odlozyl noz");
 					}
-					wykonajZadanie("odlozyl widelec i zaczal znow rozmyslac");
+					wykonajZadanie("odlozyl widelec i zaczal znow rozmyslac	");
 				}
 			}
 		} catch (InterruptedException e) {

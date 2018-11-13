@@ -10,23 +10,23 @@ public class Philosopher implements Runnable {
 		this.rightFork = right;
 	}
 
-	private void doAction(String action) throws InterruptedException {
-		System.out.println(Thread.currentThread().getName() + " " + action);
-		Thread.sleep(((int) (Math.random() * 100)));
+	private void doThing(String thing) throws InterruptedException {
+		System.out.println(Thread.currentThread().getName() + " " + thing);
+		Thread.sleep(((int) (Math.random() * 3000)));
 	}
 
 	@Override
 	public void run() {
 		try {
 			while (true) {
-				doAction(System.nanoTime() + ": Thinking"); // thinking
+				doThing(": Thinking"); // thinking
 				synchronized (leftFork) {
-					doAction(System.nanoTime() + ": Picked up left fork");
+					doThing(": Picked up left fork");
 					synchronized (rightFork) {
-						doAction(System.nanoTime() + ": Picked up right fork - eating"); // eating
-						doAction(System.nanoTime() + ": Put down right fork");
+						doThing(": Picked up right fork - eating"); // eating
+						doThing(": Put down right fork");
 					}
-					doAction(System.nanoTime() + ": Put down left fork. Returning to thinking");
+					doThing(": Put down left fork. Returning to thinking");
 				}
 			}
 		} catch (InterruptedException e) {

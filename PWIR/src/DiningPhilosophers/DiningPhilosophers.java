@@ -15,7 +15,7 @@ public class DiningPhilosophers {
 		}
 
 		for (int i = 0; i < philosophers.length; i++) {
-
+			
 			Fork leftFork = forks[i];
 			Knife rightKnife = knives[i];
 
