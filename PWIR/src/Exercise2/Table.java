@@ -21,7 +21,7 @@ public class Table {
 
 	}
 
-	public synchronized void changePhilosophStatus(PhilosophStatus status, int id) {
+	public synchronized void changePhilosophStatus(PhilosophStatus status) {
 		switch (status) {
 		case EAT:
 			numberMeals++;
@@ -37,8 +37,8 @@ public class Table {
 	}
 
 	public synchronized void getSpoon(Philosoph philosoph) {
-		Integer number;
-		while ((number = cutleries.getOrDefault(CutleryType.SPOON, 0)) <= 0) {
+		Integer amountSpoons;
+		while ((amountSpoons = cutleries.getOrDefault(CutleryType.SPOON, 0)) <= 0) {
 			try {
 				notify();
 				wait();
@@ -47,14 +47,14 @@ public class Table {
 			}
 		}
 
-		cutleries.put(CutleryType.SPOON, number - 1);
+		cutleries.put(CutleryType.SPOON, amountSpoons - 1);
 		philosoph.addSpoon();
 		notify();
 	}
 
 	public synchronized void getKnife(Philosoph philosoph) {
-		Integer number;
-		while ((number = cutleries.getOrDefault(CutleryType.KNIFE, 0)) <= 0) {		
+		Integer amountKnives;
+		while ((amountKnives = cutleries.getOrDefault(CutleryType.KNIFE, 0)) <= 0) {
 			try {
 				notify();
 				wait();
@@ -63,7 +63,7 @@ public class Table {
 			}
 		}
 
-		cutleries.put(CutleryType.KNIFE, number - 1);
+		cutleries.put(CutleryType.KNIFE, amountKnives - 1);
 		philosoph.addKnife();
 		notify();
 	}

@@ -7,20 +7,14 @@ import java.util.Random;
 public class Philosoph implements Runnable {
 
 	private static final Random random = new Random();
-	private static int nextId = 0;
-
+	
 	public final Table table;
 	public String name;
-	private final int id = countId();
 	public Map<CutleryType, Integer> cutleries = new HashMap<>();
 
 	public Philosoph(Table table, String name) {
 		this.table = table;
 		this.name = name;
-	}
-
-	private int countId() {
-		return nextId++;
 	}
 
 	public String getName() {
@@ -42,7 +36,7 @@ public class Philosoph implements Runnable {
 
 		table.getSpoon(this);
 		table.getKnife(this);
-		table.changePhilosophStatus(PhilosophStatus.EAT, id);
+		table.changePhilosophStatus(PhilosophStatus.EAT);
 		System.out.println(this.getName() + " je schabowego");
 
 		try {
@@ -59,7 +53,7 @@ public class Philosoph implements Runnable {
 
 	public void think() {
 
-		table.changePhilosophStatus(PhilosophStatus.THINK, id);
+		table.changePhilosophStatus(PhilosophStatus.THINK);
 		System.out.println(this.getName() + " mysli");
 		try {
 			Thread.sleep(Main.MIN_THINKING_TIME + random.nextInt(Main.MAX_THINKING_TIME - Main.MIN_THINKING_TIME));
@@ -79,12 +73,12 @@ public class Philosoph implements Runnable {
 	}
 
 	public void removeKnife() {
-		cutleries.put(CutleryType.KNIFE, cutleries.getOrDefault(CutleryType.KNIFE, 0) + 1);
+		cutleries.put(CutleryType.KNIFE, cutleries.getOrDefault(CutleryType.KNIFE, 0) - 1);
 		System.out.println(this.getName() + " zwrocil noz");
 	}
 
 	public void removeSpoon() {
-		cutleries.put(CutleryType.SPOON, cutleries.getOrDefault(CutleryType.SPOON, 0) + 1);
+		cutleries.put(CutleryType.SPOON, cutleries.getOrDefault(CutleryType.SPOON, 0) - 1);
 		System.out.println(this.getName() + " zwrocil lyzke");
 	}
 
