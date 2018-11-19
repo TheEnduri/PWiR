@@ -1,4 +1,4 @@
-package DiningPhilosophers;
+package DiningPhilosophersTest;
 
 public class DiningPhilosophers {
 

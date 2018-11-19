@@ -1,4 +1,4 @@
-package DiningPhilosophersProblem;
+package DiningPhilosophersTestTwo;
 
 public class Philosopher implements Runnable {
 
