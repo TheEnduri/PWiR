@@ -40,8 +40,8 @@ public class Table {
 		Integer amountSpoons;
 		while ((amountSpoons = cutleries.getOrDefault(CutleryType.SPOON, 0)) <= 0) {
 			try {
-				notify();
 				wait();
+				notify();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -56,8 +56,8 @@ public class Table {
 		Integer amountKnives;
 		while ((amountKnives = cutleries.getOrDefault(CutleryType.KNIFE, 0)) <= 0) {
 			try {
-				notify();
 				wait();
+				notify();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

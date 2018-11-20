@@ -14,7 +14,7 @@ public class Container {
 		this.produktyNiebieskie = produktyNiebieskie;
 	}
 
-	public void setValue(String name) throws InterruptedException {										// metoda tworzaca produkty i ladujaca do kolejki
+	public void createProduct(String name) throws InterruptedException {										// metoda tworzaca produkty i ladujaca do buforu
 																										
 		if (name == "czerwony") {																		// jezeli nazwa producenta to czerwony to watki tych producentow maja dostep do
 			synchronized (produktyCzerwone) {															// kolejki produktyCzerwone
@@ -54,7 +54,7 @@ public class Container {
 	}
 
 	
-	public void getValue() throws InterruptedException {												// metoda pobierajaca produkty
+	public void getProduct() throws InterruptedException {												// metoda pobierajaca produkty
 
 		synchronized (produktyCzerwone) {
 			

@@ -7,7 +7,7 @@ import java.util.Random;
 public class Philosoph implements Runnable {
 
 	private static final Random random = new Random();
-	
+
 	public final Table table;
 	public String name;
 	public Map<CutleryType, Integer> cutleries = new HashMap<>();
@@ -24,12 +24,23 @@ public class Philosoph implements Runnable {
 	@Override
 	public void run() {
 
-		do {
+		while (table.StillCanEat()) {
 			think();
 			eat();
-		} while (table.StillCanEat());
+		}
 		System.out.println(this.getName() + " zakonczyl ucztowanie i odszedl od stolu");
 
+	}
+
+	public void think() {
+
+		table.changePhilosophStatus(PhilosophStatus.THINK);
+		System.out.println(this.getName() + " mysli");
+		try {
+			Thread.sleep(Main.MIN_THINKING_TIME + random.nextInt(Main.MAX_THINKING_TIME - Main.MIN_THINKING_TIME));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void eat() {
@@ -49,17 +60,6 @@ public class Philosoph implements Runnable {
 			e.printStackTrace();
 		}
 
-	}
-
-	public void think() {
-
-		table.changePhilosophStatus(PhilosophStatus.THINK);
-		System.out.println(this.getName() + " mysli");
-		try {
-			Thread.sleep(Main.MIN_THINKING_TIME + random.nextInt(Main.MAX_THINKING_TIME - Main.MIN_THINKING_TIME));
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void addKnife() {

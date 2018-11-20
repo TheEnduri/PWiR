@@ -14,7 +14,7 @@ public class Consumer implements Runnable {							// implementujemy Runnable, co
 		while (true) {
 			
 			try {
-				container.getValue();
+				container.getProduct();
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

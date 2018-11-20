@@ -12,8 +12,8 @@ public class Main {
 
 		Container container = new Container(redQueue, blueQueue);
 
-		Thread producent1 = new Thread(new Producer(container, "czerwony"));
-		Thread producent2 = new Thread(new Producer(container, "niebieski"));
+		Thread producent1 = new Thread(new Producer(container, "niebieski"));
+		Thread producent2 = new Thread(new Producer(container, "czerwony"));
 
 		Thread konsument1 = new Thread(new Consumer(container), "konsument1");
 		Thread konsument2 = new Thread(new Consumer(container), "konsument2");

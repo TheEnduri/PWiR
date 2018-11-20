@@ -12,7 +12,7 @@ public class Main {
 	public static final int MIN_EATING_TIME = 1000;
 	public static final int MAX_EATING_TIME = 3000;
 
-	public static final int NUMBER_OF_MEALS = 7;
+	public static final int NUMBER_OF_MEALS = 10;
 
 	public static final Map<CutleryType, Integer> CUTLERY;
 	static {
