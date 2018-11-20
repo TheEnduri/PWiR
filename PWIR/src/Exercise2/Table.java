@@ -36,9 +36,9 @@ public class Table {
 		}
 	}
 
-	public synchronized void getSpoon(Philosoph philosoph) {
-		Integer amountSpoons;
-		while ((amountSpoons = cutleries.getOrDefault(CutleryType.SPOON, 0)) <= 0) {
+	public synchronized void getFork(Philosoph philosoph) {
+		Integer amountForks;
+		while ((amountForks = cutleries.getOrDefault(CutleryType.FORK, 0)) <= 0) {
 			try {
 				wait();
 				notify();
@@ -47,8 +47,8 @@ public class Table {
 			}
 		}
 
-		cutleries.put(CutleryType.SPOON, amountSpoons - 1);
-		philosoph.addSpoon();
+		cutleries.put(CutleryType.FORK, amountForks - 1);
+		philosoph.addFork();
 		notify();
 	}
 
@@ -68,8 +68,8 @@ public class Table {
 		notify();
 	}
 
-	public synchronized void addSpoon() {
-		cutleries.put(CutleryType.SPOON, cutleries.getOrDefault(CutleryType.SPOON, 0) + 1);
+	public synchronized void addFork() {
+		cutleries.put(CutleryType.FORK, cutleries.getOrDefault(CutleryType.FORK, 0) + 1);
 		notify();
 	}
 

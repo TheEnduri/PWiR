@@ -45,7 +45,7 @@ public class Philosoph implements Runnable {
 
 	public void eat() {
 
-		table.getSpoon(this);
+		table.getFork(this);
 		table.getKnife(this);
 		table.changePhilosophStatus(PhilosophStatus.EAT);
 		System.out.println(this.getName() + " je schabowego");
@@ -54,8 +54,8 @@ public class Philosoph implements Runnable {
 			Thread.sleep(Main.MIN_EATING_TIME + random.nextInt(Main.MAX_EATING_TIME - Main.MIN_EATING_TIME));
 			table.addKnife();
 			removeKnife();
-			table.addSpoon();
-			removeSpoon();
+			table.addFork();
+			removeFork();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -67,9 +67,9 @@ public class Philosoph implements Runnable {
 		System.out.println(this.getName() + " otrzymal noz");
 	}
 
-	public void addSpoon() {
-		cutleries.put(CutleryType.SPOON, cutleries.getOrDefault(CutleryType.SPOON, 0) + 1);
-		System.out.println(this.getName() + " otrzymal lyzke");
+	public void addFork() {
+		cutleries.put(CutleryType.FORK, cutleries.getOrDefault(CutleryType.FORK, 0) + 1);
+		System.out.println(this.getName() + " otrzymal widelec");
 	}
 
 	public void removeKnife() {
@@ -77,9 +77,9 @@ public class Philosoph implements Runnable {
 		System.out.println(this.getName() + " zwrocil noz");
 	}
 
-	public void removeSpoon() {
-		cutleries.put(CutleryType.SPOON, cutleries.getOrDefault(CutleryType.SPOON, 0) - 1);
-		System.out.println(this.getName() + " zwrocil lyzke");
+	public void removeFork() {
+		cutleries.put(CutleryType.FORK, cutleries.getOrDefault(CutleryType.FORK, 0) - 1);
+		System.out.println(this.getName() + " zwrocil widelec");
 	}
 
 }

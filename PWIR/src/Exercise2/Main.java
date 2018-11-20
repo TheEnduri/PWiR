@@ -18,7 +18,7 @@ public class Main {
 	static {
 		Map<CutleryType, Integer> cutleryMap = new HashMap<CutleryType, Integer>();
 		cutleryMap.put(CutleryType.KNIFE, 1);
-		cutleryMap.put(CutleryType.SPOON, 4);
+		cutleryMap.put(CutleryType.FORK, 4);
 		CUTLERY = Collections.unmodifiableMap(cutleryMap);
 	}
 

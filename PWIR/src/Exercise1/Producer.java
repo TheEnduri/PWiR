@@ -17,7 +17,7 @@ public class Producer implements Runnable {					//implementujemy Runnable, co ur
         while(true){
             try {
                 container.createProduct(name);
-                Thread.sleep(100);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
